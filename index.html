@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>다온리치 – 세무사의 컨설팅 역량을 확장합니다</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0b1220; --text:#eef2f7; --muted:#aeb8cc;
+  --gold:#c7a15a; --gold-2:#e6c98f;
+  --line:#21304a; --card:#0f1d33; --card-2:#0a1426;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+
+/* Header */
+.header{padding:18px 0;border-bottom:1px solid var(--line);background:#0a1426;position:sticky;top:0;z-index:30}
+.header__in{display:flex;align-items:center;justify-content:space-between}
+.brand{
+  font-weight:800;font-size:1.4rem;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.nav a{color:var(--muted);margin-left:14px;font-weight:500}
+.nav a:hover{color:var(--gold-2)}
+
+/* Hero */
+.hero{position:relative;min-height:75vh;display:flex;align-items:center;text-align:center;background:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,0.7),#0b1220)}
+.hero__content{position:relative;z-index:2;width:100%}
+.hero__content h1{font-size:clamp(28px,5vw,52px);margin:.4em 0;font-weight:700}
+.hero__content p{color:var(--muted);max-width:700px;margin:0 auto 1.5em}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,.08);color:var(--text);transition:.25s}
+.btn--primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;border:none}
+.btn--primary:hover{opacity:.9}
+.btn--ghost{background:transparent}
+
+/* Section */
+.section{padding:72px 0;border-bottom:1px solid var(--line)}
+.section--alt{background:var(--card-2)}
+.section__head{text-align:center;margin-bottom:40px}
+.section__eyebrow{display:inline-block;color:var(--gold-2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.section__title{font-size:clamp(24px,3.5vw,36px);color:#fff;margin-bottom:10px}
+.section__lead{color:var(--muted);line-height:1.8;max-width:820px;margin:auto;text-align:center}
+.grid{display:grid;gap:20px}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid--3{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.grid--3{grid-template-columns:1fr}}
+
+/* Card */
+.card{background:linear-gradient(180deg,var(--card),#0a1a30);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease}
+.card:hover{transform:translateY(-4px)}
+.card__thumb img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.card__body{padding:20px}
+.card__title{margin:0 0 .45rem;color:var(--gold);font-weight:700}
+.card__text{color:var(--muted)}
+
+/* Footer */
+.footer{padding:26px 0;background:#0a1426;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__in">
+    <a href="index.html" class="brand">DAONRICH</a>
+    <nav class="nav">
+      <a href="about.html">회사소개</a>
+      <a href="partners.html">제휴세무사</a>
+      <a href="seminar.html">세미나</a>
+      <a href="insights.html">인사이트</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero__content container">
+    <span class="section__eyebrow">TAX • CONSULTING • NETWORK</span>
+    <h1>세무사의 컨설팅 역량을 확장합니다.</h1>
+    <p>다온리치는 세무사가 중심이 되는 컨설팅 생태계를 만듭니다.<br>
+       실무형 교육, 사례 중심 브리핑, 전국 네트워크를 통해<br>세무사의 경쟁력을 높입니다.</p>
+    <a href="about.html" class="btn btn--primary">회사 소개 보기</a>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__head">
+      <span class="section__eyebrow">ABOUT</span>
+      <h2 class="section__title">세무사의 미래를 함께 설계합니다</h2>
+      <p class="section__lead">다온리치는 세무사님들이 ‘기장’에 머무르지 않고<br>기업 컨설팅까지 주도할 수 있도록 지원합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Links -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">주요 서비스</h2>
+      <p class="section__lead">다온리치의 세무사 네트워크와 교육·컨설팅 플랫폼</p>
+    </div>
+    <div class="grid grid--3">
+      <a class="card" href="partners.html">
+        <div class="card__thumb">
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" media="(min-width: 800px)">
+            <img loading="lazy"
+                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                 alt="제휴 세무사 협업"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80';">
+          </picture>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">제휴 세무사</h3>
+          <p class="card__text">제휴·중개 세무사 제도 및 협업 구조 안내</p>
+        </div>
+      </a>
+      <a class="card" href="seminar.html">
+        <div class="card__thumb"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">세무사 교육 안내</h3>
+          <p class="card__text">케이스 기반 실무 세미나·강의 프로그램</p>
+        </div>
+      </a>
+      <a class="card" href="insights.html">
+        <div class="card__thumb"><img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1600&auto=format&fit=crop" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">인사이트</h3>
+          <p class="card__text">세무사가 바로 참고할 수 있는 연구 브리핑</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Education: ✅ 통합 문구로 교체 -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__head">
+      <span class="section__eyebrow">EDUCATION</span>
+      <h2 class="section__title">세무사 대상 실무 컨설팅 교육</h2>
+      <p class="section__lead">
+        이익잉여금, 가지급금, 가업승계, 정책자금 등 기업 현장에서 마주하는 주요 이슈를
+        <strong>하나의 흐름으로 연결해 실제 상담·제안 단계까지 이어지는 통합 실무 교육</strong>으로 제공합니다.
+        케이스 중심으로 구조를 분석하고, 실행 문서와 전략까지 함께 설계합니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">함께 성장할 세무사를 기다립니다</h2>
+      <p class="section__lead">제휴, 교육 참여, 컨설팅 문의를 통해 다온리치 네트워크에 함께하세요.</p>
+    </div>
+    <div style="text-align:center;margin-top:10px;">
+      <a href="partners.html" class="btn btn--primary">제휴 문의하기</a>
+      <a href="seminar.html" class="btn btn--ghost" style="margin-left:10px;">세미나 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">© 2025 DAONRICH. All rights reserved.</footer>
+
+</body>
+</html>
