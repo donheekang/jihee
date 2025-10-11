@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>세무사 세미나 – 다온리치</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0B3041;   /* 브랜드 기본 남색 */
+  --gold:#8D6F4B;   /* 포인트 금색 */
+  --white:#FFFFFF;  /* 흰색 */
+  --bg:var(--white);
+  --text:var(--navy);
+  --muted:#6E7C88;
+  --line:#E3E8EB;
+  --card:#FFFFFF;
+  --card-2:#F8FAFB;
+  --shadow:0 8px 28px rgba(11,48,65,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-gutter:stable both-edges} /* 스크롤바 유무로 폭 변동 방지 */
+body{
+  font-family:'Pretendard',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.75;
+  overflow-y:scroll; /* 강제 스크롤바 */
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block;height:auto}
+.container{width:min(1100px,92%);margin:auto}
+
+/* Header */
+.header{
+  padding:18px 0;border-bottom:1px solid var(--line);
+  background:var(--white);position:sticky;top:0;z-index:30
+}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:1.4rem;letter-spacing:.02em;color:var(--navy)}
+.nav{display:flex;gap:14px;flex-wrap:wrap}
+.nav a{color:var(--muted);font-weight:600}
+
+/* ✅ 내비 ‘흔들림’ 방지 공통 규칙 */
+.header .nav{
+  flex-wrap:nowrap !important;      /* 줄바꿈 금지 */
+  overflow:auto;                    /* 넘치면 가로 스크롤 */
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.header .nav::-webkit-scrollbar{display:none}
+.header .nav a{
+  padding:6px 0;
+  border-bottom:2px solid transparent; /* hover/active 시 높이 유지 */
+}
+.header .nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.header .nav a[aria-current="page"]{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* Hero */
+.hero{
+  padding:72px 0 28px;text-align:center;
+  background:linear-gradient(180deg,#F2F5F7 0%,#FFFFFF 100%);
+}
+.hero .eyebrow{
+  display:inline-block;color:var(--gold);font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:8px
+}
+.hero h1{font-size:clamp(26px,4.4vw,42px);margin:.3em 0;color:var(--navy)}
+.hero p{color:var(--muted);line-height:1.9;max-width:780px;margin:0 auto}
+
+/* Sections */
+.section{padding:44px 0;border-top:1px solid var(--line)}
+.section__title{text-align:center;font-size:clamp(24px,3.2vw,32px);margin-bottom:10px;color:var(--navy)}
+.section__lead{text-align:center;color:var(--muted);max-width:740px;margin:0 auto 24px}
+
+/* Grid & Cards */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow);
+  transition:transform .2s ease;
+}
+.card:hover{transform:translateY(-3px)}
+.thumb{position:relative}
+.thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}
+.badge{
+  position:absolute;left:12px;top:12px;
+  background:var(--gold);
+  color:#fff;font-size:.82rem;font-weight:700;
+  border-radius:8px;padding:.25rem .6rem;opacity:.95;
+}
+.badge--green{background:#2e8b57}
+.badge--gray{background:#7e8a94}
+.badge--red{background:#a94442}
+.body{padding:18px}
+.title{margin:0 0 .45rem;color:var(--navy);font-size:1.07rem;line-height:1.45}
+.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.9rem;margin-top:.35rem}
+.meta span{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--line);
+  border-radius:999px;padding:.2rem .6rem;
+}
+.actions{
+  display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);
+  margin-top:auto;
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:40px;padding:0 14px;border-radius:10px;
+  font-weight:700;
+  border:1px solid var(--line);
+  color:var(--navy);
+  transition:.25s;
+}
+.btn--primary{background:var(--gold);color:#fff;border:none}
+.btn--primary:hover{filter:brightness(.95)}
+.btn--ghost{background:transparent}
+.btn--ghost:hover{color:var(--gold)}
+
+/* FAQ */
+.faq{max-width:900px;margin:0 auto}
+.faq__item{border:1px solid var(--line);background:var(--card-2);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq__q{padding:14px 16px;font-weight:700;cursor:pointer;color:var(--navy)}
+.faq__a{padding:0 16px 14px;color:var(--muted);display:none}
+
+/* Filters */
+.filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:8px 0 18px}
+.filter{
+  border:1px solid var(--line);
+  background:var(--card-2);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.45rem .9rem;
+  font-weight:700;
+  cursor:pointer;
+}
+.filter.is-active{background:var(--gold);color:#fff;border:none}
+
+/* Footer */
+.footer{
+  padding:26px 0;background:var(--white);
+  border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__in">
+    <a href="index.html" class="brand">DAONRICH</a>
+    <nav class="nav">
+      <a href="about.html">회사소개</a>
+      <a href="client.html">다온컨설팅</a>
+      <a href="partners.html">제휴세무사</a>
+      <a href="seminar.html" aria-current="page">세미나</a>
+      <a href="insights.html">인사이트</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">TAX ADVISOR SEMINAR</span>
+    <h1>세무사 ‘業의 확장’, ‘역량의 강화’를 위한 세무사 세미나</h1>
+    <p>다온리치는 세무사의 컨설팅 역량을 높이는 실무 중심 교육을 운영합니다.</p>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">세무사 세미나 일정</h2>
+    <p class="section__lead">예정된 세무사 세미나 일정을 확인하세요.</p>
+
+    <div class="filters" id="filters-when">
+      <button class="filter is-active" data-when="all">전체 기간</button>
+      <button class="filter" data-when="this">이번 달</button>
+      <button class="filter" data-when="next">다음 달</button>
+    </div>
+
+    <div class="grid" id="upcoming-list"></div>
+  </div>
+</section>
+
+<!-- Past -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">마감된 세무사 세미나</h2>
+    <p class="section__lead">종료된 세션입니다. 다시보기 및 자료는 순차 제공됩니다.</p>
+    <div class="grid" id="past-list"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">FAQ</h2>
+    <div class="faq" id="faq">
+      <div class="faq__item">
+        <div class="faq__q">참여 조건이 있나요?</div>
+        <div class="faq__a">세무사 또는 회계사로 등록된 전문자격사만 참여 가능합니다.</div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">세미나는 무료인가요?</div>
+        <div class="faq__a">대부분 무료이며, 일부 심화 과정은 별도 공지됩니다.</div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">세미나 자료는 어떻게 받을 수 있나요?</div>
+        <div class="faq__a">세미나 종료 후, 신청자에게 이메일로 자료 링크가 발송됩니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">© 2025 DAONRICH. All rights reserved. · 문의 contact@daonrich.co.kr</footer>
+
+<!-- ======================= -->
+<!-- 🔧 세무사 세미나 데이터(JSON) -->
+<!-- ======================= -->
+<script type="application/json" id="seminar-data">
+[
+  {
+    "title": "기업필수패키지 핵심 이해와 영업전략",
+    "date": "2025-10-20",
+    "time": "10:00~12:00",
+    "venue": "다온리치 본사",
+    "status": "open",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
+    "applyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdCQMhL315IigjExzLJNoyHGzqEj2i9Ykg6kfTvCbgCQNx_AQ/viewform?usp=header",
+    "detailUrl": "#"
+  },
+  {
+    "title": "기장영업 활용 정책자금 전략",
+    "date": "2025-09-22",
+    "time": "10:00~12:00",
+    "venue": "다온리치 본사",
+    "status": "ended",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
+    "applyUrl": "#",
+    "detailUrl": "#"
+  },
+  {
+    "title": "기업필수패키지 개요 및 정책자금 활용",
+    "date": "2025-09-08",
+    "time": "14:00~17:00",
+    "venue": "다온리치 본사",
+    "status": "ended",
+    "image": "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=1600&q=80",
+    "applyUrl": "#",
+    "detailUrl": "#"
+  }
+]
+</script>
+
+<!-- ======================= -->
+<!-- 🧠 렌더 스크립트(JS) -->
+<!-- ======================= -->
+<script>
+(function(){
+  const data = JSON.parse(document.getElementById('seminar-data').textContent);
+  const fallbackImg = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80";
+  const upcomingEl = document.getElementById('upcoming-list');
+  const pastEl = document.getElementById('past-list');
+  const today = new Date(); today.setHours(0,0,0,0);
+  const badgeByStatus = {
+    open:{label:"접수중",cls:"badge--green"},
+    closed:{label:"마감",cls:"badge--gray"},
+    ended:{label:"종료",cls:"badge--red"},
+    invite:{label:"INVITE",cls:""}
+  };
+  const sorted=[...data].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const upcoming=sorted.filter(it=>(new Date(it.date)>=today)&&(it.status==='open'||it.status==='invite'));
+  const past=sorted.filter(it=>(new Date(it.date)<today)||(it.status==='ended'||it.status==='closed')).reverse();
+
+  function cardHTML(item){
+    const b=badgeByStatus[item.status]||{label:"",cls:""};
+    const img=(item.image&&item.image.trim())?item.image:fallbackImg;
+    const dateTxt=`${item.date} ${item.time||""}`.trim();
+    const actionPrimary=(item.status==="open")?`<a class="btn btn--primary" href="${item.applyUrl||'#'}" target="_blank" rel="noopener">신청하기</a>`:'';
+    const actionSecondary=item.detailUrl?`<a class="btn btn--ghost" href="${item.detailUrl}">상세</a>`:'';
+    return `
+    <article class="card" data-date="${item.date}" data-status="${item.status}">
+      <div class="thumb">
+        <img loading="lazy" src="${img}" alt="${item.title}" onerror="this.onerror=null;this.src='${fallbackImg}'">
+        <span class="badge ${b.cls}">${b.label}</span>
+      </div>
+      <div class="body">
+        <h3 class="title">${item.title}</h3>
+        <div class="meta"><span>${dateTxt}</span><span>${item.venue||"오프라인"}</span></div>
+      </div>
+      <div class="actions">${actionPrimary}${actionSecondary}</div>
+    </article>`;
+  }
+  function renderLists(){
+    upcomingEl.innerHTML=upcoming.map(cardHTML).join('')||`<p style="color:var(--muted)">예정된 일정이 없습니다.</p>`;
+    pastEl.innerHTML=past.map(cardHTML).join('')||`<p style="color:var(--muted)">지난 세션이 없습니다.</p>`;
+  }
+  renderLists();
+  let whenActive="all";
+  function applyFilters(){
+    document.querySelectorAll('#upcoming-list .card').forEach(c=>{
+      const d=new Date(c.dataset.date);
+      let okWhen=true;
+      if(whenActive!=="all"){
+        const base=new Date();base.setHours(0,0,0,0);
+        const y=base.getFullYear(),m=base.getMonth();
+        const thisStart=new Date(y,m,1);
+        const nextStart=new Date(y,m+1,1);
+        const nextNext=new Date(y,m+2,1);
+        if(whenActive==="this"){okWhen=(d>=thisStart&&d<nextStart);}
+        if(whenActive==="next"){okWhen=(d>=nextStart&&d<nextNext);}
+      }
+      c.style.display=okWhen?'':'none';
+    });
+  }
+  document.querySelectorAll('#filters-when .filter').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('#filters-when .filter').forEach(b=>b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      whenActive=btn.dataset.when;applyFilters();
+    });
+  });
+  document.querySelectorAll('.faq__item').forEach(item=>{
+    const q=item.querySelector('.faq__q'),a=item.querySelector('.faq__a');
+    q.addEventListener('click',()=>{a.style.display=(a.style.display==='block')?'none':'block';});
+  });
+})();
+</script>
+</body>
+</html>

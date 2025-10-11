@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>인사이트 – 다온리치</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --navy:#0B3041;   /* 다온리치 남색 */
+  --gold:#8D6F4B;   /* 포인트 금색 */
+  --white:#FFFFFF;  /* 흰색 */
+  --muted:#6E7C88;
+  --line:#E3E8EB;
+  --card:#FFFFFF;
+  --card-2:#F9FAFB;
+  --shadow:0 8px 28px rgba(11,48,65,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-gutter:stable both-edges} /* 페이지 간 폭 흔들림 방지 */
+body{
+  font-family:'Pretendard',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--white);
+  color:var(--navy);
+  line-height:1.75;
+  overflow-y:scroll; /* 항상 스크롤바 확보 */
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block;height:auto}
+.container{width:min(1100px,92%);margin:auto}
+
+/* Header */
+.header{
+  padding:18px 0;border-bottom:1px solid var(--line);
+  background:var(--white);position:sticky;top:0;z-index:30
+}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:1.4rem;letter-spacing:.02em;color:var(--navy)}
+.nav{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ✅ 내비 ‘줄바꿈/높이 튐/폭 변동’ 방지(공통 규칙) */
+.header .nav{
+  flex-wrap:nowrap !important;      /* 한 줄 고정 */
+  overflow:auto;                    /* 넘치면 가로 스크롤 */
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.header .nav::-webkit-scrollbar{display:none}
+.header .nav a{
+  color:var(--muted);
+  font-weight:600;
+  padding:6px 0;
+  border-bottom:2px solid transparent; /* hover/active 시 높이 유지 */
+}
+.header .nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.header .nav a[aria-current="page"]{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* Hero */
+.hero{
+  padding:64px 0 24px;
+  text-align:center;
+  background:linear-gradient(180deg,#F2F5F7 0%,#FFFFFF 100%);
+}
+.hero .eyebrow{
+  display:inline-block;
+  color:var(--gold);
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.hero h1{
+  font-size:clamp(26px,4.4vw,42px);
+  margin:.3em 0;
+  color:var(--navy);
+}
+.hero p{color:var(--muted);line-height:1.9;max-width:780px;margin:0 auto}
+
+/* Section */
+.section{padding:48px 0}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+
+/* Card */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 40px rgba(11,48,65,0.12);
+}
+.card__thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}
+.card__in{padding:20px 20px 22px}
+.kicker{color:var(--gold);font-weight:800;font-size:.88rem;letter-spacing:.05em;margin-bottom:6px}
+.title{font-weight:800;font-size:1.1rem;line-height:1.45;margin:4px 0 10px;color:var(--navy)}
+.subtitle{color:var(--muted);font-size:.95rem}
+
+/* Footer */
+.footer{
+  padding:28px 0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  text-align:center;
+  color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__in">
+    <a href="index.html" class="brand">DAONRICH</a>
+    <nav class="nav">
+      <a href="about.html">회사소개</a>
+      <a href="client.html">다온컨설팅</a>
+      <a href="partners.html">제휴세무사</a>
+      <a href="seminar.html">세미나</a>
+      <a href="insights.html" aria-current="page">인사이트</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">INSIGHTS</span>
+    <h1>다온리치 실무 인사이트</h1>
+    <p>현장에서 바로 쓰이는 세무·재무 컨설팅의 실무 노하우를 전합니다.</p>
+  </div>
+</section>
+
+<!-- Insights Grid -->
+<section class="section">
+  <div class="container">
+    <div class="grid">
+      <!-- 1. 이익잉여금 -->
+      <article class="card">
+        <div class="card__thumb">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80" alt="재무 차트와 구조 설계 이미지">
+        </div>
+        <div class="card__in">
+          <div class="kicker">BRIEF 01</div>
+          <h3 class="title">이익잉여금, 요즘은 어떻게 컨설팅할까?</h3>
+          <p class="subtitle">배당 말고, 요즘은 ‘구조 설계’로 처리하는 시대.</p>
+        </div>
+      </article>
+
+      <!-- 2. 가지급금 -->
+      <article class="card">
+        <div class="card__thumb">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80" alt="가지급금 정리 – 계산기와 문서 이미지">
+        </div>
+        <div class="card__in">
+          <div class="kicker">BRIEF 02</div>
+          <h3 class="title">가지급금, 요즘 컨설팅은 어떻게 풀까?</h3>
+          <p class="subtitle">단순한 수치 조정이 아니라 리스크를 지우는 전략.</p>
+        </div>
+      </article>
+
+      <!-- 3. 가업승계 -->
+      <article class="card">
+        <div class="card__thumb">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1478476868527-002ae3f3e159?auto=format&fit=crop&w=1600&q=80" alt="가업승계 – 바통 터치 이미지">
+        </div>
+        <div class="card__in">
+          <div class="kicker">BRIEF 03</div>
+          <h3 class="title">가업승계, 요즘은 어떤 트렌드로 진행될까?</h3>
+          <p class="subtitle">단순 증여가 아닌 ‘경영 설계’ 중심으로 진화하고 있습니다.</p>
+        </div>
+      </article>
+
+      <!-- 4. 정책자금 -->
+      <article class="card">
+        <div class="card__thumb">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80" alt="정책자금 – 인증 및 특허 서류 이미지">
+        </div>
+        <div class="card__in">
+          <div class="kicker">BRIEF 04</div>
+          <h3 class="title">정책자금, 세무컨설팅과 어떻게 연결될까?</h3>
+          <p class="subtitle">받을 수 있는 법인이 따로 있는 이유, 구조에서 찾을 수 있습니다.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">© 2025 DAONRICH. All rights reserved.</footer>
+</body>
+</html>
